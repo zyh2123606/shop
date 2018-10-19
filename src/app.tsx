@@ -20,7 +20,7 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/index/index',
-      'pages/cart/index'
+      'pages/cart/index',
       'pages/account/index'
     ],
     window: {
@@ -42,13 +42,13 @@ class App extends Component {
         {
           pagePath: 'pages/cart/index', 
           iconPath: 'images/car.png',
-          text: '购物车'
+          text: '购物车',
           selectedIconPath: 'images/car_1.png'
         },
         {
           pagePath: 'pages/account/index', 
           iconPath: 'images/account.png',
-          text: '我的'
+          text: '我的',
           selectedIconPath: 'images/account_1.png'
         }
       ]
