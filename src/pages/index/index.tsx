@@ -1,5 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
+import { View, Text, Image, Label } from '@tarojs/components'
+import Logo from '../../images/logo.png'
 import './index.less'
 
 class Index extends Component{
@@ -11,12 +12,14 @@ class Index extends Component{
     }
     render(){
         return(
-            <View>
-                <View className='at-row'>
+            <View className='container'>
+                <View className='at-row at-row__align--center'>
                     <View className='at-col'>
-                        
+                        <Image className='logo-sty' mode='widthFix' src={Logo} />
                     </View>
-                    <View className='at-col at-col-1 at-col--auto'></View>
+                    <View className='at-col at-col-1 at-col--auto'>
+                        选择门店
+                    </View>
                 </View>
             </View>
         )
