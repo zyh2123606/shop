@@ -10,15 +10,41 @@ class Index extends Component{
     config: Config = {
         navigationBarTitleText: '首页'
     }
+    selectRoom = () => {
+        
+    }
     render(){
         return(
             <View className='container'>
-                <View className='at-row at-row__align--center'>
-                    <View className='at-col'>
-                        <Image className='logo-sty' mode='widthFix' src={Logo} />
+                <View className='content'>
+                    <View className='at-row at-row__align--center'>
+                        <View className='at-col'>
+                            <Image className='logo-sty' mode='widthFix' src={Logo} />
+                        </View>
+                        <View onClick={this.selectRoom}>
+                            <View className='at-row at-row__align--center'>
+                                <Text className='arrow-txt'>选择门店</Text>
+                                <Text className='arrow-right'></Text>
+                            </View>
+                        </View>
                     </View>
-                    <View className='at-col at-col-1 at-col--auto'>
-                        选择门店
+                    <View className='type-banner'>
+                        <View className='banner-inner'></View>
+                    </View>
+                    <View className='prod-panel'>
+                        <View className='pannel-inner'>商品类型</View>
+                    </View>
+                    <View className='prod-panel'>
+                        <View className='pannel-inner'>特惠专区</View>
+                        <View className='th-banner'></View>
+                    </View>
+                    <View className='prod-panel'>
+                        <View className='pannel-inner'>热门商品</View>
+                        <View className='hot-banner'></View>
+                    </View>
+                    <View className='prod-panel'>
+                        <View className='pannel-inner'>新品上架</View>
+                        <View className='new-banner'></View>
                     </View>
                 </View>
             </View>

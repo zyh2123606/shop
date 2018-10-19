@@ -1,9 +1,60 @@
 @import '../../inconfont.less';
+@import '../../app.less';
 .container{
-    padding: 15px;
+    font-size: 16px;
+    line-height: normal;
+    display: block;
+    color: #333;
+    .content{
+        padding: 15px;
+    }
     .logo-sty{
         width: 100px;
         border-right: 1px solid #eee;
         padding-right: 10px;
+    }
+    .arrow-txt{
+        margin-right: 5px;
+    }
+    .banner{
+        height: 160px;
+        position: relative;
+        margin-top: 20px;
+    }
+    .banner-inner{
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: url(../../images/ban_inner.png) no-repeat 0 bottom;
+        background-size: 100% 25px;
+    }
+    .type-banner{
+        .banner;
+        background: url(../../images/banne1.png) no-repeat 0 0;
+        background-size: 100% 160px;
+    }
+    .th-banner{
+        .banner;
+        background: url(../../images/banner2.png) no-repeat 0 0;
+        background-size: 100% 150px;
+    }
+    .hot-banner{
+        .banner;
+        background: url(../../images/banner3.png) no-repeat 0 0;
+        background-size: 100% 150px;
+    }
+    .new-banner{
+        .banner;
+        background: url(../../images/banner4.png) no-repeat 0 0;
+        background-size: 100% 150px;
+    }
+    .prod-panel{
+        margin-top: 20px;
+    }
+    .pannel-inner{
+        font-size: 18px;
+        font-weight: bold;
     }
 }

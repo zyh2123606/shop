@@ -12,6 +12,12 @@ module.exports = {
           config: {
             /* pxtransform 配置项 */
           }
+        },
+        url: {
+          enable: true,
+          config: {
+            limit: 1024*1024
+          }
         }
       }
     }
