@@ -13,8 +13,7 @@ class Index extends Component{
         navigationBarTitleText: '首页'
     }
     async componentDidMount(){
-        const res = await Service.getUserInfo()
-        console.log(res)
+        
     }
     render(){
         return(
