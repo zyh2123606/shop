@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "shop",
 	"description": "react redux shop",
-	"appid": "touristappid",
+	"appid": "wxfdcee3354c70e732",
 	"setting": {
 		"urlCheck": false,
 		"es6": false,

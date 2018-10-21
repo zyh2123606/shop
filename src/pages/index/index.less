@@ -5,8 +5,9 @@
     line-height: normal;
     display: block;
     color: #333;
-    .content{
-        padding: 15px;
+    .header{
+        padding: 0 15px;
+        padding-top: 15px;
     }
     .logo-sty{
         width: 100px;
@@ -15,11 +16,12 @@
     }
     .arrow-txt{
         margin-right: 5px;
+        color: #999;
     }
     .banner{
         height: 160px;
         position: relative;
-        margin-top: 20px;
+        margin: 20px 15px 0 15px;
     }
     .banner-inner{
         position: absolute;
@@ -29,6 +31,11 @@
         bottom: 0;
         background: url(../../images/ban_inner.png) no-repeat 0 bottom;
         background-size: 100% 25px;
+    }
+    .pannel-title{
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 15px;
     }
     .type-banner{
         .banner;
@@ -53,8 +60,84 @@
     .prod-panel{
         margin-top: 20px;
     }
-    .pannel-inner{
-        font-size: 18px;
-        font-weight: bold;
+    .prod-item{
+        @val: 20px;
+        width: calc(~"33.33333333333333% - @{val}");
+        display: inline-block;
+        border-radius: @borderRadius;
+        margin: 10px 10px 10px 0;
+        .boxShadow();
+        background: #ffffff;
+        &:last-child{
+            margin-right: 15px;
+        }
+        &:first-child{
+            margin-left: 15px;
+        }
+    }
+    .scroll-view{
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+    }
+    .prod-img{
+        width: 100%;
+        display: block;
+    }
+    .prod-name{
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        padding: 5px;
+        overflow: hidden; 
+        white-space: nowrap; 
+        text-overflow:ellipsis;
+    }
+    .prod-list{
+       margin: 0 15px;
+       .product{
+            @val: 10px;
+            width: calc(~"33.33333333333333% - @{val}");
+            display: inline-block;
+            border-radius: @borderRadius;
+            margin-right: 10px;
+            margin-top: 10px;
+            .boxShadow();
+            background: #ffffff;
+            .info{
+                padding: 5px 5px 10px 5px;
+                font-size: 12px;
+                text-align: center;
+                .name{
+                    line-height: normal;
+                    display: block;
+                    text-align: center;
+                    overflow: hidden; 
+                    white-space: nowrap; 
+                    text-overflow:ellipsis;
+                }
+                .price{
+                    line-height: normal;
+                    display: block;
+                    text-align: center;
+                    color: @orangeRed;
+                }
+                .link{
+                    padding: 2px 10px;
+                    background: @orangeRed;
+                    color: #ffffff;
+                    display: inline-block;
+                    border-radius: 20px;
+                    margin-top: 5px;
+                }
+                .link-normal{
+                    .link;
+                    background: @orange;
+                }
+            }
+       }
+       &:nth-child(3n){
+            margin-right: 5px;
+       }
     }
 }
