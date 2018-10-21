@@ -3,6 +3,7 @@ import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Logo from '../../images/logo.png'
 import TypeProd from '../../images/type_img.png'
 import './index.less'
+import Service from '../../services/userService'
 
 class Index extends Component{
     static options = {
@@ -11,8 +12,9 @@ class Index extends Component{
     config: Config = {
         navigationBarTitleText: '首页'
     }
-    componentDidMount(){
-        
+    async componentDidMount(){
+        const res = await Service.getUserInfo()
+        console.log(res)
     }
     render(){
         return(
