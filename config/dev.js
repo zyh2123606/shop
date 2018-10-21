@@ -8,7 +8,7 @@ module.exports = {
     module: {
       postcss: {
         pxtransform: {
-          enable: false,
+          enable: true,
           config: {
             /* pxtransform 配置项 */
           }
@@ -26,7 +26,7 @@ module.exports = {
     module: {
       postcss: {
         pxtransform: {
-          enable: false,
+          enable: true,
           config: {
             /* pxtransform 配置项 */
           }
