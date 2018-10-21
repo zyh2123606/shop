@@ -7,7 +7,12 @@ module.exports = {
   weapp: {
     module: {
       postcss: {
-        pxtransform: {},
+        pxtransform: {
+          enable: false,
+          config: {
+            /* pxtransform 配置项 */
+          }
+        },
         url: {
           enable: true,
           config: {
