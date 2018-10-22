@@ -5,7 +5,7 @@
     display: block;
     color: #333;
     .header{
-        padding: 0 30px;
+        padding: 0 @space;
         padding-top: 30px;
     }
     .logo-sty{
@@ -20,7 +20,7 @@
     .banner{
         height: 320px;
         position: relative;
-        margin: 40px 30px 0 30px;
+        margin: 40px @space 0 @space;
     }
     .banner-inner{
         position: absolute;
@@ -34,7 +34,7 @@
     .pannel-title{
         font-size: 36px;
         font-weight: bold;
-        margin: 0 30px;
+        margin: 0 @space;
     }
     .type-banner{
         .banner;
@@ -93,7 +93,7 @@
         text-overflow:ellipsis;
     }
     .prod-list{
-       margin: 0 30px;
+       margin: 0 @space;
        .product{
             @val: 20px;
             width: calc(~"33.33333333333333% - @{val}");
