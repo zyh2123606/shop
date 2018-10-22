@@ -41,7 +41,7 @@ class Index extends Component{
                         </View>
                     </View>
                 </View>
-                <View className='footer-bar'>
+                <View className='footer-bar' style={{bottom: process.env.TARO_ENV === "weapp"?0:50}}>
                     <View className='footer-content box vbox'>
                         <View className='flex'>
                             <AtCheckbox selectedList={selectedList} options={[{value: 0, label: '全部'}]} onChange={this.chkHandleChange} />
