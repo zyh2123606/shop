@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { AtCheckbox, AtButton, AtSwipeAction, AtInputNumber  } from 'taro-ui'
+import { AtCheckbox, AtSwipeAction, AtInputNumber  } from 'taro-ui'
 import './index.less'
 
 class Index extends Component{
