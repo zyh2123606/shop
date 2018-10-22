@@ -1,5 +1,5 @@
 @black: #333;
-@borderRadius: 5px;
+@borderRadius: 20px;
 @borderColor: #E6E6E6;
 @orange: #FF8E44;
 @orangeRed: #FF5A60;
@@ -15,45 +15,14 @@
 }
 .container{
     width: 100%;
-    min-height: 100%;
+    min-height: 100%; 
     background-color: @bodyColor;
 }
 .orangeColor{
     color: @orange;
 }
-.normalTag{
-    @mlVal: 12px;
-    margin-left: 10px;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    border: #ddd solid 1px;
-    border-radius: 19px;
-    margin-top: 7px;
-    display: inline-block;
-    padding: 0 15px;
-}
-.activeTag{
-    .normalTag;
-    border-color: @orange;
-    color: @orange;
-}
 .boxShadow(){ /*阴影样式*/
     box-shadow: 0 2px 8px 0 rgba(60,96,148,0.14);
-}
-/**链接按钮**/
-.link-btn{
-    display: block;
-    color: #fff!important;
-    font-size: 18px;
-    background: @orange;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    border-radius: 25px;
-}
-.link-btn:active{
-    background: #F08742;
 }
 /**css函数**/
 .orangeBac(){ /*背景橙色*/
@@ -67,20 +36,6 @@
 }
 .borderRadius(){ /*圆角*/
     border-radius: @borderRadius;
-}
-.transition(){ //过渡
-    transition: all .35s linear;
-    -webkit-transition: all .35s linear;
-}
-.animatedTime() { /*动画时长*/
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-.animatedInfinite(){ /*动画反复播放*/
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
 }
 /**0.5像素细线**/
 .scal-y-line(){
@@ -159,8 +114,8 @@
 }
 /**方向箭头**/
 .awwow{
-    width: 6px;
-    height: 6px;
+    width: 16px;
+    height: 16px;
     display: block;
 }
 .arrow-top{
@@ -186,4 +141,71 @@
     border-top: @arrowColor solid 1px;
     border-right: @arrowColor solid 1px;
     transform: rotate(135deg);
+}
+/**盒子模型**/
+.box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.flex {
+    -webkit-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-box-flex: 1;
+    flex: 1;
+}
+.vbox {
+    -webkit-box-align: center;
+    box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+.hbox {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+}
+.box-center {
+    -webkit-box-align: center;
+    box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+}
+.horizontal {
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-flex-flow: row nowrap;
+    -moz-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+}
+.vertical {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-flow: column wrap;
+    -moz-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
 }

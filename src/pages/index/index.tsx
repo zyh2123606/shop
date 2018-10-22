@@ -13,21 +13,18 @@ class Index extends Component{
         navigationBarTitleText: '首页'
     }
     async componentDidMount(){
-        
     }
     render(){
         return(
-            <View className='container'>
+            <View className='container box vertical'>
                 <View className='header'>
-                    <View className='at-row at-row__align--center'>
-                        <View className='at-col'>
+                    <View className='box horizontal vbox'>
+                        <View className='flex'>
                             <Image className='logo-sty' mode='widthFix' src={Logo} />
                         </View>
-                        <View>
-                            <View className='at-row at-row__align--center'>
-                                <Text className='arrow-txt'>选择门店</Text>
-                                <Text className='arrow-right'></Text>
-                            </View>
+                        <View className='box horizontal vbox'>
+                            <Text className='arrow-txt'>选择门店</Text>
+                            <Text className='arrow-right'></Text>
                         </View>
                     </View>
                 </View>

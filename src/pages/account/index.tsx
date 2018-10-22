@@ -12,7 +12,7 @@ class Index extends Component{
     }
     render(){
         return(
-            <View className='container'>
+            <View>
                 <AtForm>
                     <AtInput
                         name='value1'
