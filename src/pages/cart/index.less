@@ -1,1 +1,67 @@
 @import '../../inconfont.less';
+@import '../../app.less';
+.cart-container{
+    .container;
+    background: #fff;
+    color: #333;
+    .cart-content{
+        padding: 0 @space 20px @space;
+    }
+    .panel{ 
+        background: #fff;
+        box-shadow: 0 5px 20px 0 rgba(60,96,148,0.14);
+        border-radius: @borderRadius;
+        margin-top: 20px;
+        overflow: hidden;
+        position: relative;
+        .at-swipe-action__content, .at-swipe-action{
+            border-radius: 12px;
+        }
+        .prod-name{
+            font-size: 36px;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+        .prod-tag{
+            background: #F0F0F0;
+            color: #666;
+            font-size: 28px;
+            padding: 0 10px;
+            display: inline-block;
+            margin-right: 10px; 
+            border-radius: 5px;
+        }
+        .prod-pic{
+            width: 76px;
+            height: 76px;
+            padding: 2px;
+            border-radius: @borderRadius;
+            border: 1px solid #E6E6E6;
+        }
+    }
+    .money{
+        color: @orange;
+    }
+    .footer-bar{
+        color: #333;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        z-index: 100;
+        background: #fff;
+        .footer-content{
+            font-size: 36px;
+            .thin-ty-line();
+        }
+        .pay-btn{
+            padding: 30px 60px;
+            background: @orange;
+            color: #fff;
+            margin-left: 30px;
+        }
+        .pay-btn:active{
+            background: rgba(255,142,68,.8);
+        }
+    }
+}

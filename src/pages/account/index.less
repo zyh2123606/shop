@@ -1,2 +1,80 @@
-@import '../../inconfont.less';
 @import '../../app.less';
+@import '../../inconfont.less';
+.account-container{
+    min-height: 100%;
+    background: #fff;
+    .content{
+        margin: 10px @space 0 @space;
+    }
+    .header{
+        height: 268px;
+        background-image: linear-gradient(-90deg, #FD6062 0%, #FC9264 100%);
+        position: relative;
+        color: #FFFFFF;
+        padding-left: 40px;
+        .uinfo{
+            padding-top: 50px;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 60px;
+            background: url(../../images/bott_shadow.png) no-repeat left bottom;
+            background-size: 100% auto;
+        }
+        .user-head{
+            width: 96px;
+            height: 96px;
+            background: #FFFFFF;
+            border: 8px solid rgba(252, 146, 100, .7);
+            box-shadow: 0 8px 16px 0 rgba(185,45,18,0.57);
+            border-radius: 100px;
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+            margin-right: 30px;
+        }
+    }
+    .menu{
+        padding: 40px 0;
+        margin-top: 30px;
+        background: #FFFFFF;
+        .boxShadow();
+        font-size: 30px;
+        color: #666;
+        border-radius: @borderRadius;
+    }
+    .menu-item{
+        text-align: center;
+    }
+    .menu-icon{
+        color: @orange;
+        font-size: 50px;
+        padding-bottom: 20px;
+    }
+    .act-menu{
+        margin-top: 40px;
+        color: #666;
+        .boxShadow();
+        position: relative;
+        overflow: hidden;
+        border-radius: @borderRadius;
+        padding: 0 30px;
+        .act-menu-item{
+            font-size: 36px;
+            padding: 25px 5px 25px 0;
+            &:not(:first-child){
+                .thin-ty-line();
+            };
+        }
+        .item-txt{
+            color: @orange;
+        }
+    }
+}

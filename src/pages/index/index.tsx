@@ -16,13 +16,13 @@ class Index extends Component{
     }
     render(){
         return(
-            <View className='container box vertical'>
+            <View className='index-container box vertical'>
                 <View className='header'>
                     <View className='box horizontal vbox'>
                         <View className='flex'>
                             <Image className='logo-sty' mode='widthFix' src={Logo} />
                         </View>
-                        <View className='box horizontal vbox'>
+                        <View className='box horizontal vbox' style='font-size:16px;'>
                             <Text className='arrow-txt'>选择门店</Text>
                             <Text className='arrow-right'></Text>
                         </View>
@@ -141,7 +141,7 @@ class Index extends Component{
                         </View>
                     </View>
                 </View>
-                <View className='prod-panel' style='padding-bottom: 20px;'>
+                <View className='prod-panel' style='padding-bottom: 10px;'>
                     <View className='pannel-title'>新品上架</View>
                     <View className='new-banner'></View>
                     <View className='prod-list'>

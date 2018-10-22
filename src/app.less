@@ -1,5 +1,5 @@
 @black: #333;
-@borderRadius: 20px;
+@borderRadius: 15px;
 @borderColor: #E6E6E6;
 @orange: #FF8E44;
 @orangeRed: #FF5A60;
@@ -8,6 +8,11 @@
 @arrowColor: #CCCCCC;
 @bodyColor: #F4F7FB;
 @space: 30px;
+
+.taro_page{
+    bottom: 0;
+    right: 0;
+}
 ::-webkit-scrollbar{  
     width: 0;  
     height: 0;  
@@ -23,7 +28,7 @@
     color: @orange;
 }
 .boxShadow(){ /*阴影样式*/
-    box-shadow: 0 2px 8px 0 rgba(60,96,148,0.14);
+    box-shadow: 0 5px 20px 0 rgba(60,96,148,0.14);
 }
 /**css函数**/
 .orangeBac(){ /*背景橙色*/
@@ -118,6 +123,7 @@
     width: 16px;
     height: 16px;
     display: block;
+    margin-left: 5px;
 }
 .arrow-top{
     .awwow;
@@ -209,4 +215,26 @@
     -moz-flex-flow: column wrap;
     -ms-flex-flow: column wrap;
     flex-flow: column wrap;
+}
+.a-end{
+    -webkit-align-items: flex-end; 
+    -webkit-box-pack: end; 
+    -ms-flex-align: end; 
+    align-items: flex-end;
+}
+/**taro-ui自定义**/
+.at-checkbox__icon{
+    border-color: @orange;
+}
+.at-checkbox__option:active{
+    background: #fff;
+}
+.at-checkbox__icon--selected{
+    background-color: @orange;
+}
+.at-input-number__btn{
+    color: @orange;
+}
+.at-input-number--disabled{
+    color: #ccc;
 }
