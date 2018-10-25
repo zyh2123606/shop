@@ -30,13 +30,13 @@ class LoginServices extends Request{
       return res
     }
     public mem_update = async() =>{
-      let userInfo = JSON.parse(Taro.getStorageSync('userInfo')
-      const res = await this.post('https://iretail.bonc.com.cn/api/mem/update',{memId:userInfo.memId,nickName:userInfo.nickName,avatarUrl:userInfo.avatarUrl},{})
+      let userInfo = JSON.parse(Taro.getStorageSync('userInfo'))
+      const up_res = await this.post('https://iretail.bonc.com.cn/api/mem/update',{memId:userInfo.memId,nickName:userInfo.nickName,avatarUrl:userInfo.avatarUrl},{})
 
-      if (res.data.code != '0000'){
-        Taro.showToast({title:res.data.msg,icon:'none'})
+      if (up_res.data.code != '0000'){
+        Taro.showToast({title:up_res.data.msg,icon:'none'})
       }
-      return res
+      return up_res
     }
 
     public queryUsreInfo = async() => {

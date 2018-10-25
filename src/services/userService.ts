@@ -6,7 +6,7 @@ class UserService extends Request{
         super()
     }
     public getUserInfo = (data={}, config={}) => {
-        
+
     }
 }
 

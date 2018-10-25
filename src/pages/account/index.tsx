@@ -1,5 +1,7 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import { AtButton } from 'taro-ui'
+
 import './index.less'
 
 class Index extends Component{
@@ -10,8 +12,16 @@ class Index extends Component{
         navigationBarTitleText: '我的'
     }
     componentDidMount(){
-        
+
     }
+    bindSignUp(){
+      Taro.navigateTo({url: '/pages/signUp/index'})
+    }
+
+    bindAdress(){
+      Taro.navigateTo({url: '/pages/adress/index'})
+    }
+
     render(){
         return(
             <View className='account-container box vertical'>
@@ -54,10 +64,12 @@ class Index extends Component{
                     <View className='act-menu'>
                         <View className='act-menu-item box vbox'>
                             <View className='flex'>我的会员</View>
-                            <Text className='item-txt'>去注册</Text>
+                            <Text className='item-txt' onClick={this.bindSignUp.bind(this)}>去注册</Text>
                             <Text className='arrow-right'></Text>
+                            {/* <AtButton></AtButton> */}
+                            {/* <AtButton className='arrow-right' onClick={this.binSignUp.bind(this)}>去注册</AtButton> */}
                         </View>
-                        <View className='act-menu-item box vbox'>
+                        <View className='act-menu-item box vbox' onClick={this.bindAdress.bind(this)}>
                             <View className='flex'>收货地址</View>
                             <Text className='arrow-right'></Text>
                         </View>

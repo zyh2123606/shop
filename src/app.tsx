@@ -25,7 +25,10 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/cart/index',
-      'pages/account/index'
+      'pages/account/index',
+      'pages/authorize/index',
+      'pages/signUp/index',
+      'pages/adress/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -38,19 +41,19 @@ class App extends Component {
       selectedColor: '#FF8E44',
       list: [
         {
-          pagePath: 'pages/index/index', 
+          pagePath: 'pages/index/index',
           iconPath: 'images/home.png',
           text: '首页',
           selectedIconPath: 'images/home_1.png'
         },
         {
-          pagePath: 'pages/cart/index', 
+          pagePath: 'pages/cart/index',
           iconPath: 'images/car.png',
           text: '购物车',
           selectedIconPath: 'images/car_1.png'
         },
         {
-          pagePath: 'pages/account/index', 
+          pagePath: 'pages/account/index',
           iconPath: 'images/account.png',
           text: '我的',
           selectedIconPath: 'images/account_1.png'
