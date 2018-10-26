@@ -12,7 +12,7 @@ class Index extends Component{
         addGlobalClass: true
     }
     config: Config = {
-        navigationBarTitleText: '注册'
+        navigationBarTitleText: '我的会员'
     }
 
     constructor () {

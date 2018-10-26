@@ -20,6 +20,9 @@ class Index extends Component{
     bindAdress(){
       Taro.navigateTo({url: '/pages/adress/index'})
     }
+    onClickMember(){
+      Taro.navigateTo({url: '/pages/member/index'})
+    }
 
     render(){
         return(
@@ -61,12 +64,10 @@ class Index extends Component{
                         </View>
                     </View>
                     <View className='act-menu'>
-                        <View className='act-menu-item box vbox'>
-                            <View className='flex'>我的会员</View>
+                        <View className='act-menu-item box vbox' >
+                            <View className='flex' onClick={this.onClickMember.bind(this)}>我的会员</View>
                             <Text className='item-txt' onClick={this.bindSignUp.bind(this)}>去注册</Text>
                             <Text className='arrow-right'></Text>
-                            {/* <AtButton></AtButton> */}
-                            {/* <AtButton className='arrow-right' onClick={this.binSignUp.bind(this)}>去注册</AtButton> */}
                         </View>
                         <View className='act-menu-item box vbox' onClick={this.bindAdress.bind(this)}>
                             <View className='flex'>收货地址</View>

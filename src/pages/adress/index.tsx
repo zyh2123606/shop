@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Text} from '@tarojs/components'
-import { AtCheckbox } from 'taro-ui'
+import { AtCheckbox, AtButton } from 'taro-ui'
 import './index.less'
 
 class Index extends Component{
@@ -27,9 +27,25 @@ class Index extends Component{
     }
     onClickEdith = () =>{
       console.log('点击编辑')
+      Taro.navigateTo({url: '/pages/addadress/index?type=edith'})
     }
     onClickDetele= () =>{
       console.log('点击删除')
+      Taro.showModal({
+        title: '提示',
+        content: '您点击了删除收货地址',
+        showCancel: true,
+        confirmText: '删除'
+      }).then(res=>{
+        if (res.confirm) {
+          console.log('用户点击了“删除”')
+        }
+      })
+    }
+    onClickAdd = () =>{
+      console.log('点击添加收货地址')
+      Taro.navigateTo({url: '/pages/addadress/index?type=add'})
+
     }
     render(){
       const { selectedList } = this.state
@@ -52,6 +68,8 @@ class Index extends Component{
                 </View>
               </View>
             </View>
+
+            <AtButton className='address-add' onClick={this.onClickAdd.bind(this)}>添加收货地址</AtButton>
           </View>
 
         )
