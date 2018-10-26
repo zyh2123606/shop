@@ -23,12 +23,12 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/adress/index',
       'pages/index/index',
       'pages/cart/index',
       'pages/account/index',
       'pages/authorize/index',
-      'pages/signUp/index',
-      'pages/adress/index'
+      'pages/signUp/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -41,7 +41,7 @@ class App extends Component {
       selectedColor: '#FF8E44',
       list: [
         {
-          pagePath: 'pages/index/index',
+          pagePath: 'pages/adress/index',
           iconPath: 'images/home.png',
           text: '首页',
           selectedIconPath: 'images/home_1.png'

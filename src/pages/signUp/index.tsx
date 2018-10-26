@@ -6,6 +6,10 @@ import Login from'../../utils/login'
 import { View } from '_@tarojs_components@1.0.7@@tarojs/components/types';
 
 class Index extends Component{
+  state = {
+    phone: '',
+    code:''
+  }
     static options = {
         addGlobalClass: true
     }
@@ -15,16 +19,13 @@ class Index extends Component{
 
     constructor () {
       super(...arguments)
-      this.state = {
-        phone: '',
-        code:''
-      }
+
     }
     handlePhoneChange (value) {
       this.setState({
         phone:value
       })
-      if (this.state.phone.count>0){
+      if (this.state.phone.length>0){
 
       }else{
 

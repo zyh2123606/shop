@@ -1,21 +1,40 @@
 @import '../../inconfont.less';
 @import '../../app.less';
-.sign-up-container{
+.adress-container{
     line-height: normal;
     display: block;
     color: #333;
-  .sign-up-from{
-
-    .code{
-      .code_get_button{
-        background-color:lightgrey;
-        margin: 5px;
+  .item-view{
+    margin: @space;
+    border-color: @bodyColor;
+    border-radius: @borderRadius;
+    .boxShadow();
+    .item-top-view{
+      margin: 30px;
+      .name{
+        margin-top: 20px;
       }
     }
+    .item-buttom-view{
+      .at-checkbox__icon{
+        border-color: @orange;
+      }
+      .at-checkbox__option:active{
+          background: #fff;
+      }
+      .at-checkbox__icon--selected{
+          background-color: @orange;
+      }
+      .edith{
+        margin-left: 20px;
+        margin-right: 20px;
 
-  }
-  .sign-up-submit{
-    background-color:orange;
-    margin-bottom: 10px
+      }
+      .detele{
+        margin-left: 20px;
+        margin-right: 20px;
+
+      }
+    }
   }
 }

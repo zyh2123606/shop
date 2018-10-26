@@ -1,11 +1,11 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { AtCard, AtButton } from 'taro-ui'
+import { View, Text} from '@tarojs/components'
+import { AtCheckbox } from 'taro-ui'
 import './index.less'
-import Login from'../../utils/login'
-import { View } from '_@tarojs_components@1.0.7@@tarojs/components/types';
 
 class Index extends Component{
+  state = { selectedList: [] }
+
     static options = {
         addGlobalClass: true
     }
@@ -15,57 +15,43 @@ class Index extends Component{
 
     constructor () {
       super(...arguments)
-      this.state = {
-        phone: '',
-        code:''
-      }
-    }
-    handlePhoneChange (value) {
-      this.setState({
-        phone:value
-      })
-      if (this.state.phone.count>0){
 
-      }else{
+    }
 
-      }
-    }
-    handleCodeChange (value) {
-      this.setState({
-        code:value
-      })
-    }
-    getCode(){
-      console.log("获取"+this.state.phone+"验证码")
-      this.setState({
-        code:'12345'
-      })
-    }
-    submit(){
-      console.log('点击了提交')
-      Taro.showToast({
-        title: '注册成功',
-        icon: 'success',
-        duration: 2000
-      })
-    }
     componentWillMount(){
 
     }
 
+    chkHandleChange = selectedList => {
+      this.setState({ selectedList })
+    }
+    onClickEdith = () =>{
+      console.log('点击编辑')
+    }
+    onClickDetele= () =>{
+      console.log('点击删除')
+    }
     render(){
+      const { selectedList } = this.state
         return(
-          <View className='sign-up-container box vertical'>
-
-            <AtCard
-              note='小Tips'
-              extra='13668739613'
-              title='刘可可'
-              thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
-            >
-              <Text>云南省 昆明市 五华区 江滨西路51号江滨西路51号江滨西路51号江滨西路51号江滨西路51号江滨西路51号 联通大厦</Text>
-            </AtCard>
-            <AtButton className='sign-up-submit' onClick={this.submit.bind(this)}>确定</AtButton>
+          <View className='adress-container box vertical'>
+            <View className='item-view'>
+              <View className='item-top-view'>
+                <View className='box'>
+                  <Text className='flex'>张小红</Text>
+                  <Text className='item-phone'>13668739613</Text>
+                </View>
+                <Text >云南省 昆明市 盘龙区 江滨西路51号 江滨西路51号 江滨西路51号 江滨西路51号</Text>
+              </View>
+              <View className='item-buttom-view'>
+                <View className='box horizontal vbox'>
+                <AtCheckbox selectedList={selectedList} options={[{value: 0, label: ''}]} onChange={this.chkHandleChange} />
+                <Text className='flex' >默认地址</Text>
+                <Text className='icon-account edith' onClick={this.onClickEdith.bind(this)}></Text>
+                <Text className='icon-cancel detele' onClick={this.onClickDetele.bind(this)}></Text>
+                </View>
+              </View>
+            </View>
           </View>
 
         )
