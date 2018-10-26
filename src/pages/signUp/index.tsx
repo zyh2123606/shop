@@ -2,7 +2,6 @@ import Taro, { Component, Config } from '@tarojs/taro'
 // import { View, Text } from '@tarojs/components'
 import { AtInput, AtForm, AtButton } from 'taro-ui'
 import './index.less'
-import Login from'../../utils/login'
 import { View } from '_@tarojs_components@1.0.7@@tarojs/components/types';
 
 class Index extends Component{

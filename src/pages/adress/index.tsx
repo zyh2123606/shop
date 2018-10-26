@@ -38,7 +38,7 @@ class Index extends Component{
             <View className='item-view'>
               <View className='item-top-view'>
                 <View className='box'>
-                  <Text className='flex'>张小红</Text>
+                  <Text className='flex name'>张小红</Text>
                   <Text className='item-phone'>13668739613</Text>
                 </View>
                 <Text >云南省 昆明市 盘龙区 江滨西路51号 江滨西路51号 江滨西路51号 江滨西路51号</Text>
