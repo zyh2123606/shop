@@ -23,6 +23,7 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/redpackets/index',
       'pages/index/index',
       'pages/cart/index',
       'pages/account/index',
@@ -30,8 +31,7 @@ class App extends Component {
       'pages/signUp/index',
       'pages/adress/index',
       'pages/addadress/index',
-      'pages/member/index',
-      'pages/redpackets/index'
+      'pages/member/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -44,7 +44,7 @@ class App extends Component {
       selectedColor: '#FF8E44',
       list: [
         {
-          pagePath: 'pages/index/index',
+          pagePath: 'pages/redpackets/index',
           iconPath: 'images/home.png',
           text: '首页',
           selectedIconPath: 'images/home_1.png'

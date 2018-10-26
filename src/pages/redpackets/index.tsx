@@ -1,12 +1,11 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View } from '@tarojs/components'
-import { AtInput, AtForm, AtButton } from 'taro-ui'
+import { View ,Text} from '@tarojs/components'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 import './index.less'
 
 class Index extends Component{
   state = {
-    phone: '',
-    code:''
+    current: 0
   }
     static options = {
         addGlobalClass: true
@@ -19,33 +18,10 @@ class Index extends Component{
       super(...arguments)
 
     }
-    handlePhoneChange (value) {
-      this.setState({
-        phone:value
-      })
-      if (this.state.phone.length>0){
 
-      }else{
-
-      }
-    }
-    handleCodeChange (value) {
+    handleClick (value) {
       this.setState({
-        code:value
-      })
-    }
-    getCode(){
-      console.log("获取"+this.state.phone+"验证码")
-      this.setState({
-        code:'12345'
-      })
-    }
-    submit(){
-      console.log('点击了提交')
-      Taro.showToast({
-        title: '注册成功',
-        icon: 'success',
-        duration: 2000
+        current: value
       })
     }
     componentWillMount(){
@@ -53,35 +29,33 @@ class Index extends Component{
     }
 
     render(){
-        return(
-          <View className='sign-up-container box vertical'>
-            <AtForm
-              className ='sign-up-from'
-            >
-              <AtInput
-                name='phone'
-                title='手机号码'
-                type='number'
-                placeholder='请输入'
-                value={this.state.phone}
-                onChange={this.handlePhoneChange.bind(this)}
-              />
-              <AtInput
-                clear
-                className='code'
-                name='code'
-                title='验证码'
-                type='number'
-                placeholder='点击获取'
-                value={this.state.code}
-                onChange={this.handleCodeChange.bind(this)}
-              >
-                <AtButton className='code_get_button' onClick={this.getCode.bind(this)}>点击获取</AtButton>
-              </AtInput>
-            </AtForm>
-            <AtButton className='sign-up-submit' onClick={this.submit.bind(this)}>确定</AtButton>
-          </View>
+      const tabList = [{ title: '可用红包' }, { title: '已过期红包' }]
 
+        return(
+          <AtTabs className='at-tabs' current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
+            <AtTabsPane className='at-tabs-pane'  current={this.state.current} index={0} >
+              <View className='use-red-packets' >
+                <View className='box horizontal red-packets-items '>
+                  <View className='box vbox hbox item-price-view'>
+                    <Text className='price'>¥10</Text>
+                  </View>
+                  <View className='flex item-content'>
+                    <View className='item-content-top'>订单满199即可享用</View>
+                    <View className='box item-content-bottom'>
+                      <Text className = 'flex'>2018-11-11 到期</Text>
+                      <Text >立即使用</Text>
+                    </View>
+                  </View>
+
+
+
+                </View>
+              </View>
+            </AtTabsPane>
+            <AtTabsPane current={this.state.current} index={1}>
+              <View className='use-red-packets' style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
+            </AtTabsPane>
+          </AtTabs>
         )
     }
 }

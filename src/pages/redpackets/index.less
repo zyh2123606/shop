@@ -1,30 +1,56 @@
 @import '../../inconfont.less';
 @import '../../app.less';
-.sign-up-container{
-    line-height: normal;
-    display: block;
-    color: #333;
+.at-tabs{
 
+  .at-tabs-pane{
+    .use-red-packets{
+      .red-packets-items{
+        .boxShadow();
+        height: 200px;
+        background-color: white;
+        margin: @space;
+        border-color: @bodyColor;
+        border-radius: @borderRadius;
+        .item-price-view{
+          width: 200px;
+          height: 200px;
+          background-color:@orangeRed;
+          background: -webkit-linear-gradient(left , @orange , @orangeRed);
+          position: relative;
+          .price{
+            font-size: 40px;
+            color: white;
+          }
+          &::before{
+            content: "";
+            width: 50px;
+            height: 50px;
+            background:#fff;
+            border-radius: 50px;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            margin-top: -25px;
+          }
+        }
 
-
-  .sign-up-from{
-
-    .code{
-      .code_get_button{
-        background-color:lightgrey;
-        margin: 5px;
       }
+
     }
 
   }
-  .sign-up-submit{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color:@orange;
-    margin-bottom: 10px
+  .item-content{
+    padding: 20px 30px;
+
   }
 
+  .item-content-top{
+    margin-top: 20px;
+    font-size: 40px;
+  }
+  .item-content-bottom{
+    margin-top: 20px;
+    clear: #999
+  }
 
 }
