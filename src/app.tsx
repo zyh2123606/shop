@@ -30,7 +30,8 @@ class App extends Component {
       'pages/signUp/index',
       'pages/adress/index',
       'pages/addadress/index',
-      'pages/member/index'
+      'pages/member/index',
+      'pages/redpackets/index'
     ],
     window: {
       backgroundTextStyle: 'light',

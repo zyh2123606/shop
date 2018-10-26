@@ -12,7 +12,7 @@ class Index extends Component{
         addGlobalClass: true
     }
     config: Config = {
-        navigationBarTitleText: '我的会员'
+        navigationBarTitleText: '我的红包'
     }
 
     constructor () {
@@ -29,10 +29,25 @@ class Index extends Component{
 
       }
     }
-    onClickRedPackets (){
-      Taro.navigateTo({url: '/pages/redpackets/index'})
+    handleCodeChange (value) {
+      this.setState({
+        code:value
+      })
     }
-
+    getCode(){
+      console.log("获取"+this.state.phone+"验证码")
+      this.setState({
+        code:'12345'
+      })
+    }
+    submit(){
+      console.log('点击了提交')
+      Taro.showToast({
+        title: '注册成功',
+        icon: 'success',
+        duration: 2000
+      })
+    }
     componentWillMount(){
 
     }
@@ -44,41 +59,27 @@ class Index extends Component{
               className ='sign-up-from'
             >
               <AtInput
-                disabled
                 name='phone'
                 title='手机号码'
                 type='number'
-                placeholder=''
+                placeholder='请输入'
                 value={this.state.phone}
+                onChange={this.handlePhoneChange.bind(this)}
               />
               <AtInput
-                disabled
+                clear
+                className='code'
                 name='code'
-                title='等级'
-                type='text'
-                placeholder=''
-                value={this.state.code}
-              />
-              <AtInput
-                disabled
-                name='code'
-                title='积分'
-                type='text'
-                placeholder=''
-                value={this.state.code}
-              />
-              <AtInput
-                disabled
-                name='code'
-                title='红包'
+                title='验证码'
                 type='number'
-                placeholder=''
+                placeholder='点击获取'
                 value={this.state.code}
-
+                onChange={this.handleCodeChange.bind(this)}
               >
-                <AtButton onClick={this.onClickRedPackets.bind(this)}> > </AtButton>
+                <AtButton className='code_get_button' onClick={this.getCode.bind(this)}>点击获取</AtButton>
               </AtInput>
             </AtForm>
+            <AtButton className='sign-up-submit' onClick={this.submit.bind(this)}>确定</AtButton>
           </View>
 
         )

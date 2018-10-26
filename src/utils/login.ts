@@ -67,6 +67,24 @@ class LoginServices extends Request{
 
         }
     }
+
+    public authorize = () =>{
+      Taro.showLoading({title:'正在努力加载！'})
+
+      Taro.getSetting({
+        success(res) {
+          if (!res.authSetting['scope.record']) {
+            Taro.authorize({
+              scope: 'scope.record',
+              success() {
+                // 用户已经同意小程序使用录音功能，后续调用 Taro.startRecord 接口不会弹窗询问
+                // Taro.startRecord()
+              }
+            })
+          }
+        }
+      })
+    }
 }
 
 export default new LoginServices()
