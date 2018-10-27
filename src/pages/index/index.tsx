@@ -3,7 +3,6 @@ import { View, Text, Image, ScrollView } from '@tarojs/components'
 import Logo from '../../images/logo.png'
 import TypeProd from '../../images/type_img.png'
 import './index.less'
-import Login from '../../utils/login'
 
 class Index extends Component{
     static options = {
@@ -15,6 +14,9 @@ class Index extends Component{
     async componentDidMount(){
 
     }
+    onClickChooseShop(){
+      Taro.navigateTo({url:'/pages/choosestore/index'})
+    }
     render(){
         return(
             <View className='index-container box vertical'>
@@ -24,7 +26,7 @@ class Index extends Component{
                             <Image className='logo-sty' mode='widthFix' src={Logo} />
                         </View>
                         <View className='box horizontal vbox' style='font-size:16px;'>
-                            <Text className='arrow-txt'>选择门店</Text>
+                            <Text className='arrow-txt'onClick={this.onClickChooseShop.bind(this)} >选择门店</Text>
                             <Text className='arrow-right'></Text>
                         </View>
                     </View>

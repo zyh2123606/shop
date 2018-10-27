@@ -22,8 +22,27 @@ class Index extends Component{
 
     }
 
-    chkHandleChange = selectedList => {
-      this.setState({ selectedList })
+    chkHandleChange = value => {
+      // this.setState({ selectedList })
+      if (this.state.selectedList.length>0){
+        if (value.length>0){
+          this.setState({ selectedList:[value[value.length-1]] },()=>{
+            console.log('selectedList==='+this.state.selectedList)
+
+          })
+        }else{
+          this.setState({ selectedList:value },()=>{
+            console.log('selectedList==='+this.state.selectedList)
+
+          })
+        }
+
+      }else{
+        this.setState({ selectedList:value },()=>{
+          console.log('selectedList==='+this.state.selectedList)
+
+        })
+      }
     }
     onClickEdith = () =>{
       console.log('点击编辑')

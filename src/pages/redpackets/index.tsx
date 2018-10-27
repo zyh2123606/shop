@@ -24,6 +24,9 @@ class Index extends Component{
         current: value
       })
     }
+    onClickUseNow(value){
+      console.log(value)
+    }
     componentWillMount(){
 
     }
@@ -43,7 +46,7 @@ class Index extends Component{
                     <View className='item-content-top'>订单满199即可享用</View>
                     <View className='box item-content-bottom'>
                       <Text className = 'flex'>2018-11-11 到期</Text>
-                      <Text >立即使用</Text>
+                      <Text className = 'user-red-packets' onClick={this.onClickUseNow.bind(this)}>立即使用</Text>
                     </View>
                   </View>
 
