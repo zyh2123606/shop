@@ -15,7 +15,7 @@ class RequestBase{
                 let message = `位置错误${statusCode}`
                 let isSuccess = true
                 switch(statusCode){
-                    case 200: 
+                    case 200:
                         isSuccess = true
                         break
                     case 404:
@@ -41,7 +41,7 @@ class RequestBase{
         return this.httpRequest({url, method: 'POST', data, ...this.defaultConfig, ...config})
     }
     public get(url: string, data={}, config: {}){
-        return this.httpRequest({url, method: 'GET', data, ...this.defaultConfig, ...config}) 
+        return this.httpRequest({url, method: 'GET', data, ...this.defaultConfig, ...config})
     }
 }
 

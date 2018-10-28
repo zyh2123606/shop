@@ -4,6 +4,8 @@ import Logo from '../../images/logo.png'
 import TypeProd from '../../images/type_img.png'
 import './index.less'
 
+import LocationService from '../../utils/location'
+
 class Index extends Component{
     static options = {
         addGlobalClass: true
@@ -12,6 +14,8 @@ class Index extends Component{
         navigationBarTitleText: '首页'
     }
     async componentDidMount(){
+      const res = await LocationService.getLocation()
+
 
     }
     onClickChooseShop(){

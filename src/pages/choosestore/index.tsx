@@ -1,12 +1,15 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View,Text } from '@tarojs/components'
-import {  AtButton ,AtSearchBar,AtCheckbox,AtRadio} from 'taro-ui'
+import {  AtButton ,AtSearchBar,AtCheckbox} from 'taro-ui'
 import './index.less'
 
+import LocationService from '../../utils/location'
+import StoreService from  '../../services/storeService'
 class Index extends Component{
   state = {
     searchValue: '',
-    selectedList: []
+    selectedList: [],
+    deptList:[]
 
   }
     static options = {
@@ -22,6 +25,28 @@ class Index extends Component{
     }
 
     componentWillMount(){
+
+    }
+    async componentDidMount(){
+      Taro.showLoading({title:'正在加载'})
+      const lo_res = await LocationService.getLocation()
+      let longitude = lo_res.longitude
+      let latitude = lo_res.latitude
+
+      let param={
+        "deptIng":lo_res.longitude,
+        "deptLat":lo_res.latitude,
+        "currentPage":"1",
+        "countPerPage":"10",
+        "fullname":""
+      }
+      debugger
+      const res = await StoreService.getStore(param,{})
+      debugger
+      Taro.hideLoading;
+      setTimeout(function(){
+        Taro.hideLoading()
+      },2000)
 
     }
     onChange (value) {
@@ -59,7 +84,7 @@ class Index extends Component{
 
 
     render(){
-      const { selectedList } = this.state
+      const { selectedList ,deptList} = this.state
 
         return(
           <View className='choose-store-container box vertical'>
@@ -71,35 +96,23 @@ class Index extends Component{
             onActionClick={this.onActionClick.bind(this)}
             />
             </View>
-            <View className='items-view'>
-              <View className='item-view' >
-                <View className='box vbox top'>
-                  <Text className = 'flex name'> 上海联通江苏路营业厅 </Text>
-                  <AtCheckbox selectedList={selectedList} options={[{value: 0, label: ''},]} onChange={this.chkHandleChange} />
-                </View>
-                <View className='bottom'>
-                  <Text className = 'address'>云南省 昆明市 五华区 滨江西路58号 上海联通江苏路营业厅 </Text>
-                </View>
-              </View>
-              <View className='item-view' >
-                <View className='box vbox top'>
-                  <Text className = 'flex name'> 上海联通江苏路营业厅 v1 </Text>
-                  <AtCheckbox selectedList={selectedList} options={[{value: 1, label: ''}]} onChange={this.chkHandleChange} />
-                </View>
-                <View className='bottom'>
-                  <Text className = 'address'>云南省 昆明市 五华区 滨江西路58号 上海联通江苏路营业厅 v1 </Text>
-                </View>
-              </View>
-              <View className='item-view' >
-                <View className='box vbox top'>
-                  <Text className = 'flex name'> 上海联通江苏路营业厅 v2 </Text>
-                  <AtCheckbox selectedList={selectedList} options={[{value: 2, label: ''}]} onChange={this.chkHandleChange} />
-                </View>
-                <View className='bottom'>
-                  <Text className = 'address'>云南省 昆明市 五华区 滨江西路58号 上海联通江苏路营业厅 v2 </Text>
-                </View>
-              </View>
-            </View>
+
+            {
+              deptList.map((item,index)=>{
+              return (
+                <View className='items-view'>
+                  <View className='item-view' >
+                    <View className='box vbox top'>
+                      <Text className = 'flex name'> item.simplename </Text>
+                      <AtCheckbox selectedList={selectedList} options={[{value: 0, label: ''},]} onChange={this.chkHandleChange} />
+                    </View>
+                    <View className='bottom'>
+                      <Text className = 'address'>item.fullname </Text>
+                    </View>
+                  </View>
+                </View>)
+              })
+            }
             <AtButton className='choose-store-submit' onClick={this.submitChooseStore.bind(this)}>确定</AtButton>
           </View>
 

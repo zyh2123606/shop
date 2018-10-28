@@ -1,7 +1,7 @@
 import Request from '../utils/requestBase'
 
 class UserService extends Request{
-    private base_url = ''
+    private base_url = 'https://newretail.bonc.com.cn/top_mall/api/salesWebToWoStore/'
     constructor(){
         super()
     }
