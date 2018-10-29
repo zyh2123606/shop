@@ -36,17 +36,28 @@ class Index extends Component{
       let param={
         "deptIng":lo_res.longitude,
         "deptLat":lo_res.latitude,
-        "currentPage":"1",
-        "countPerPage":"10",
-        "fullname":""
+        "currentPage":0,
+        "countPerPage":2,
+        "fullname":"",
+        "scope":100000
+
       }
-      debugger
+
       const res = await StoreService.getStore(param,{})
-      debugger
-      Taro.hideLoading;
-      setTimeout(function(){
-        Taro.hideLoading()
-      },2000)
+      Taro.hideLoading()
+      if (res.data.RESP_CODE === '0000'){
+        Taro.showToast({
+          title: '成功',
+          icon: 'success'
+        })
+        this.setState({deptList:res.data.DATA.deptList})
+      }else{
+        Taro.showToast({
+          title: '失败',
+          icon: 'none'
+        })
+      }
+
 
     }
     onChange (value) {
@@ -54,8 +65,38 @@ class Index extends Component{
         searchValue: value
       })
     }
-    onActionClick () {
+    async onActionClick () {
       console.log('开始搜索')
+
+
+      Taro.showLoading({title:'正在加载'})
+      const lo_res = await LocationService.getLocation()
+      let longitude = lo_res.longitude
+      let latitude = lo_res.latitude
+
+      let param={
+        "deptIng":lo_res.longitude,
+        "deptLat":lo_res.latitude,
+        "currentPage":0,
+        "countPerPage":2,
+        "fullname":this.state.searchValue,
+        "scope":100000
+
+      }
+      const res = await StoreService.getStore(param,{})
+      Taro.hideLoading()
+      if (res.data.RESP_CODE === '0000'){
+        Taro.showToast({
+          title: '成功',
+          icon: 'success'
+        })
+        this.setState({deptList:res.data.DATA.deptList})
+      }else{
+        Taro.showToast({
+          title: '失败',
+          icon: 'none'
+        })
+      }
     }
     chkHandleChange = value =>{
       if (this.state.selectedList.length>0){
@@ -78,10 +119,27 @@ class Index extends Component{
         })
       }
     }
-    submitChooseStore(value){
+    async submitChooseStore(value){
       console.log("submitChooseStore==="+value)
+      Taro.showLoading({title:'正在加载'})
+      const res = await StoreService.initStore({},{},this.state.deptList[this.state.selectedList[0]].depeId)
+      Taro.hideLoading()
+      if(res.data.RESP_CODE === '0000'){
+        Taro.showToast({
+          title: '成功',
+          icon: 'success',
+          duration:2000
+        })
+        setTimeout(function(){
+          Taro.navigateBack()
+         },2000)
+      }else{
+        Taro.showToast({
+          title: '失败',
+          icon: 'none'
+        })
+      }
     }
-
 
     render(){
       const { selectedList ,deptList} = this.state
@@ -98,16 +156,26 @@ class Index extends Component{
             </View>
 
             {
+              // "deptLat":"116.4961446153",
+              // "province":"北京",
+              // "distance":8759593.0,
+              // "city":"北京",
+              // "deptIng":"39.8076692016",
+              // "district":"大兴",
+              // "deptAddress":"北京市大兴区万源街1号",
+              // "depeId":258,
+              // "simplename":"Bluebird",
+              // "fullname":"Bluebird"
               deptList.map((item,index)=>{
               return (
                 <View className='items-view'>
                   <View className='item-view' >
                     <View className='box vbox top'>
-                      <Text className = 'flex name'> item.simplename </Text>
-                      <AtCheckbox selectedList={selectedList} options={[{value: 0, label: ''},]} onChange={this.chkHandleChange} />
+                      <Text className = 'flex name'> {item.simplename} </Text>
+                      <AtCheckbox selectedList={selectedList} options={[{value: index, label: ''},]} onChange={this.chkHandleChange} />
                     </View>
                     <View className='bottom'>
-                      <Text className = 'address'>item.fullname </Text>
+                      <Text className = 'address'>{item.deptAddress} {item.fullname} </Text>
                     </View>
                   </View>
                 </View>)
