@@ -2,11 +2,11 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtInput, AtForm, AtButton } from 'taro-ui'
 import './index.less'
+import MemberService from '../../services/memberService'
 
 class Index extends Component{
   state = {
-    phone: '',
-    code:''
+    data:{}
   }
     static options = {
         addGlobalClass: true
@@ -20,14 +20,7 @@ class Index extends Component{
 
     }
     handlePhoneChange (value) {
-      this.setState({
-        phone:value
-      })
-      if (this.state.phone.length>0){
 
-      }else{
-
-      }
     }
     onClickRedPackets (){
       Taro.navigateTo({url: '/pages/redpackets/index'})
@@ -36,8 +29,21 @@ class Index extends Component{
     componentWillMount(){
 
     }
+    async componentDidMount(){
+      Taro.showLoading({title:'正在加载！！'})
+      const res = await MemberService.getAllMember({telNum:'15527824363'},{})
+      Taro.hideLoading()
+      if (res.data.RESP_CODE === '0000'){
+        this.setState({data:res.data.DATA})
+      }else{
+        Taro.showToast({title:'加载失败请重试',icon:'none',duration:2000})
+      }
+
+      console.log(res)
+    }
 
     render(){
+      const data = this.state
         return(
           <View className='sign-up-container box vertical'>
             <AtForm
@@ -49,7 +55,7 @@ class Index extends Component{
                 title='手机号码'
                 type='number'
                 placeholder=''
-                value={this.state.phone}
+                value={data.telNum}
               />
               <AtInput
                 disabled
@@ -57,7 +63,7 @@ class Index extends Component{
                 title='等级'
                 type='text'
                 placeholder=''
-                value={this.state.code}
+                value={data.memGrade}
               />
               <AtInput
                 disabled
@@ -65,7 +71,7 @@ class Index extends Component{
                 title='积分'
                 type='text'
                 placeholder=''
-                value={this.state.code}
+                value={data.memPoint}
               />
               <AtInput
                 disabled
@@ -73,7 +79,7 @@ class Index extends Component{
                 title='红包'
                 type='number'
                 placeholder=''
-                value={this.state.code}
+                value={data.memDiscount}
 
               >
                 <AtButton onClick={this.onClickRedPackets.bind(this)}> > </AtButton>

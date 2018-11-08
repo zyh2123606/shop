@@ -2,10 +2,11 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtInput, AtForm, AtButton } from 'taro-ui'
 import './index.less'
+import MemberService from '../../services/memberService'
 
 class Index extends Component{
   state = {
-    phone: '',
+    telNum: '',
     code:''
   }
     static options = {
@@ -21,13 +22,8 @@ class Index extends Component{
     }
     handlePhoneChange (value) {
       this.setState({
-        phone:value
+        telNum:value
       })
-      if (this.state.phone.length>0){
-
-      }else{
-
-      }
     }
     handleCodeChange (value) {
       this.setState({
@@ -35,18 +31,29 @@ class Index extends Component{
       })
     }
     getCode(){
-      console.log("获取"+this.state.phone+"验证码")
+      console.log("获取"+this.state.telNum+"验证码")
       this.setState({
         code:'12345'
       })
     }
-    submit(){
+    async submit(){
       console.log('点击了提交')
-      Taro.showToast({
-        title: '注册成功',
-        icon: 'success',
-        duration: 2000
-      })
+
+      Taro.showLoading({title:'正在加载！！'})
+      const res = await MemberService.addMember({telNum:this.state.telNum})
+      Taro.hideLoading()
+      if(res.data.RESP_CODE === '0000'){
+        // this.setState({data:res.data.DATA})
+        Taro.showToast({title:'成功！',icon:'success',duration:2000})
+        setTimeout(function(){
+          Taro.navigateBack()
+        },2000)
+
+      }else{
+        Taro.showToast({title:'加载失败！',icon:'none',duration:2000})
+      }
+
+
     }
     componentWillMount(){
 
@@ -63,7 +70,7 @@ class Index extends Component{
                 title='手机号码'
                 type='number'
                 placeholder='请输入'
-                value={this.state.phone}
+                value={this.state.telNum}
                 onChange={this.handlePhoneChange.bind(this)}
               />
               <AtInput

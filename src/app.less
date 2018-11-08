@@ -13,15 +13,15 @@
     bottom: 0;
     right: 0;
 }
-::-webkit-scrollbar{  
-    width: 0;  
-    height: 0;  
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
     color: transparent;
     background-color: transparent;
 }
 .container{
     width: 100%;
-    min-height: 100%; 
+    min-height: 100%;
     background-color: @bodyColor;
 }
 .orangeColor{
@@ -49,30 +49,30 @@
     transform-origin: 0 0;
     -moz-transform-origin: 0 0;
     -ms-transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5); 
-    -moz-transform: scaleY(0.5); 
-    -ms-transform: scaleY(0.5); 
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
     transform: scaleY(0.5);
 }
 .scal-x-line(){
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     -moz-transform-origin: 0 0;
-    -ms-transform-origin: 0 0; 
-    -webkit-transform: scaleX(0.5); 
-    -moz-transform: scaleX(0.5); 
-    -ms-transform: scaleX(0.5); 
+    -ms-transform-origin: 0 0;
+    -webkit-transform: scaleX(0.5);
+    -moz-transform: scaleX(0.5);
+    -ms-transform: scaleX(0.5);
     transform: scaleX(0.5);
 }
 /**底边**/
 .thin-by-line(){
     position: relative;
     &::after{
-        content: ""; 
-        position: absolute; 
-        left: 0; 
-        bottom: 0; 
-        right: 0; 
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
         border-top: @borderColor solid 1px;
         .scal-y-line();
     }
@@ -80,13 +80,13 @@
 /**上边**/
 .thin-ty-line{
     position: relative;
-    &::before{ 
+    &::before{
         content: "";
-        position: absolute; 
-        left: 0; 
-        top: 0; 
+        position: absolute;
+        left: 0;
+        top: 0;
         height: 1px;
-        width: 100%; 
+        width: 100%;
         border-top: @borderColor solid 1px;
         z-index: 2;
         .scal-y-line();
@@ -95,10 +95,10 @@
 /**右边**/
 .thin-xr-line(){
     position: relative;
-    &::after{ 
-        content: ""; 
+    &::after{
+        content: "";
         position: absolute;
-        right: 0; 
+        right: 0;
         top: 0;
         bottom: 0;
         border-right: @borderColor solid 1px;
@@ -109,11 +109,11 @@
 .thin-xl-line(){
     position: relative;
     &::before{
-        content: ""; 
-        position: absolute; 
-        left: 0; 
-        bottom: 0; 
-        top: 0; 
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
         border-right: @borderColor solid 1px;
         .scal-x-line();
     }
@@ -217,8 +217,8 @@
     flex-flow: column wrap;
 }
 .a-end{
-    -webkit-align-items: flex-end; 
-    -webkit-box-pack: end; 
-    -ms-flex-align: end; 
+    -webkit-align-items: flex-end;
+    -webkit-box-pack: end;
+    -ms-flex-align: end;
     align-items: flex-end;
 }

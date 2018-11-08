@@ -121,6 +121,7 @@ class Index extends Component{
     }
     async submitChooseStore(value){
       console.log("submitChooseStore==="+value)
+      debugger
       Taro.showLoading({title:'正在加载'})
       const res = await StoreService.initStore({},{},this.state.deptList[this.state.selectedList[0]].depeId)
       Taro.hideLoading()

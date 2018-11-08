@@ -2,10 +2,13 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View ,Text} from '@tarojs/components'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 import './index.less'
+import MemberService from '../../services/memberService'
+
 
 class Index extends Component{
   state = {
-    current: 0
+    current: 0,
+
   }
     static options = {
         addGlobalClass: true
@@ -29,6 +32,17 @@ class Index extends Component{
     }
     componentWillMount(){
 
+    }
+    async componentDidMount(){
+      Taro.showLoading({title:'正在加载！！'})
+      const res=await MemberService.getAllRedTicket({telNum:15527824363})
+      Taro.hideLoading()
+      if (res.data.RESP_CODE === '0000'){
+
+        Taro.showToast({title:'成功',icon:'success',duration:2000})
+      }else{
+        Taro.showToast({title:'失败',icon:'none',duration:2000})
+      }
     }
 
     render(){
