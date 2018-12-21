@@ -103,10 +103,10 @@ class Index extends Component {
             : <View className='prod-panel'>
               <View className='pannel-title'>{item.columnName}</View>
               <View className='th-banner'></View>
-              {
-                item.mallRelation.map((mallItem, index) => {
-                  return (
-                    <View className='prod-list'>
+              <View className='prod-list'>
+                {
+                  item.mallRelation.map((mallItem, index) => {
+                    return (
                       <View className='product'>
                         <Image className='prod-img' mode='widthFix' src={'https://newretail.bonc.com.cn' + mallItem.displayPic} />
                         <View className='info'>
@@ -115,10 +115,10 @@ class Index extends Component {
                           <Text className='link'>立即购买</Text>
                         </View>
                       </View>
-                    </View>
-                  )
-                })
-              }
+                    )
+                  })
+                }
+              </View>
             </View>)
         })}
       </View>
